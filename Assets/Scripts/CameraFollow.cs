@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    // Plane variables
     public Transform player; // Reference to the player's transform
     public Vector3 offset = new Vector3(0f, 2f, -5f); // Offset from the player (adjust Y to be above)
     public float followSpeed = 10.0f; // Speed of the camera following the player
