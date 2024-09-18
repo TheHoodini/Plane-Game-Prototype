@@ -53,5 +53,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "plane_game_pt.sln"
+    "dotnet.defaultSolution": "Plane_game.sln"
 }

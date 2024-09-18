@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,47 +6,27 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 20.0f;
-    public float turnSpeed = 1.0f; // Speed of turning
-    public float maxRollAngle = 45.0f; // Maximum roll angle
-    public float maxPitchAngle = 45.0f; // Maximum pitch angle
-    public float rollSpeed = 2.0f; // Speed of rolling back to normal
-    public float pitchSpeed = 2.0f; // Speed of pitching back to normal
+    public float yaw;
+    public float yawSpeed = 100.0f;
+    public int pitchAngle = 30;
+    public int rollAngle = 30;
     
     private float horizontalInput;
-    private float forwardInput;
     private float verticalInput;
 
     // Update is called once per frame
     void Update()
     {
-        // Get input values
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        // Handle movement
         Vector3 movement = Vector3.forward * speed * Time.deltaTime;
         transform.Translate(movement, Space.Self);
-
-        // Handle rotation
-        float targetRollAngle = -horizontalInput * maxRollAngle;
-        float targetPitchAngle = verticalInput * maxPitchAngle;
-
-        // Get the current local rotation angles
-        float currentRollAngle = transform.localEulerAngles.z;
-        if (currentRollAngle > 180) currentRollAngle -= 360;
         
-        float currentPitchAngle = transform.localEulerAngles.x;
-        if (currentPitchAngle > 180) currentPitchAngle -= 360;
+        yaw += horizontalInput * yawSpeed * Time.deltaTime;
+        float pitch = Mathf.Lerp(0, pitchAngle, Mathf.Abs(verticalInput)) * Mathf.Sign(verticalInput);
+        float roll = Mathf.Lerp(0, rollAngle, Mathf.Abs(horizontalInput)) * -Mathf.Sign(horizontalInput);
 
-        // Smoothly interpolate to the target angles
-        float rollAngle = Mathf.Lerp(currentRollAngle, targetRollAngle, rollSpeed * Time.deltaTime);
-        float pitchAngle = Mathf.Lerp(currentPitchAngle, targetPitchAngle, pitchSpeed * Time.deltaTime);
-
-        // Apply rotation
-        transform.localRotation = Quaternion.Euler(pitchAngle, transform.localEulerAngles.y, rollAngle);
-
-        // Handle turning
-        float rotation = horizontalInput * turnSpeed * Time.deltaTime;
-        transform.Rotate(0, rotation, 0);
+        transform.rotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
     }
 }
