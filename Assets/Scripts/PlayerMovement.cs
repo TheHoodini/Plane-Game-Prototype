@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 20.0f;
     public float yaw;
     public float yawSpeed = 100.0f;
-    public int pitchAngle = 30;
+    public int pitchAngle = 45;
     public int rollAngle = 30;
     
     private float horizontalInput;
