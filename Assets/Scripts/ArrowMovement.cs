@@ -15,7 +15,8 @@ public class ArrowMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Rotate the arrow to look at the target
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(target.position - player.position), arrowSpeed * Time.deltaTime);
+        // Rotate the arrow to look at the target based on the player
+        transform.rotation = Quaternion.Slerp(transform.rotation, 
+        Quaternion.LookRotation(target.position - player.position), arrowSpeed * Time.deltaTime);
     }
 }

@@ -29,4 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Goal"))
+        {
+            other.gameObject.GetComponent<GoalController>().Spawn();
+        }
+    }
 }

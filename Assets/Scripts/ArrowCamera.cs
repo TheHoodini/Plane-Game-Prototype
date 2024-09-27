@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ArrowCamera : MonoBehaviour
 {
-    public Transform arrow; // Assign the arrow GameObject in the Inspector
-    public Transform player; // Assign the player GameObject in the Inspector
+    public Transform arrow; 
+    public Transform player; 
     public float distance = 5.0f; // Distance from the arrow
     public float height = 2.0f; // Height above the arrow
     void Start()
