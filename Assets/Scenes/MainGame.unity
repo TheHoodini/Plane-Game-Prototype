@@ -262,11 +262,11 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 18f736cff4a0769488feb2a2dd77e168, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 28de3e652e0e1f3438e4b743bbc9df4d, type: 2}
+      objectReference: {fileID: 2100000, guid: 3c066b85c9534ae44b206e967429b5f2, type: 2}
     - target: {fileID: -7635826562936255635, guid: 18f736cff4a0769488feb2a2dd77e168, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: c80a05d89f700824ca75fff7e66d3ab6, type: 3}
+      objectReference: {fileID: 2100000, guid: ddfec7950d4c2004c8816cfa89035070, type: 2}
     - target: {fileID: -6400281290468069383, guid: 18f736cff4a0769488feb2a2dd77e168, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2058,6 +2058,9 @@ MonoBehaviour:
   yawSpeed: 100
   pitchAngle: 45
   rollAngle: 30
+  dynamicPitchAmplitude: 2
+  dynamicRollAmplitude: 1.5
+  dynamicFrequency: 0.5
 --- !u!65 &1497087756
 BoxCollider:
   m_ObjectHideFlags: 0
